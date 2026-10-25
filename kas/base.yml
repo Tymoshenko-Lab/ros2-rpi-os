@@ -43,3 +43,4 @@ local_conf_header:
     LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
     IMAGE_FSTYPES = "wic.bz2 wic.bmap"
     ENABLE_UART = "1"
+    ROS_WORLD_SKIP_GROUPS += "zenoh"
