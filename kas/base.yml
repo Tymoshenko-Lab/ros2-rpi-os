@@ -1,0 +1,45 @@
+header:
+  version: 14
+
+distro: poky
+target: counter-image
+
+repos:
+  # Цей репозиторій: наш шар meta-counter
+  ros2-rpi-os:
+    layers:
+      meta-counter:
+
+  # Зовнішні шари (git submodules у layers/)
+  bitbake:
+    path: layers/bitbake
+    layers:
+      .: disabled
+  openembedded-core:
+    path: layers/openembedded-core
+    layers:
+      meta:
+  meta-yocto:
+    path: layers/meta-yocto
+    layers:
+      meta-poky:
+  meta-openembedded:
+    path: layers/meta-openembedded
+    layers:
+      meta-oe:
+      meta-python:
+  meta-raspberrypi:
+    path: layers/meta-raspberrypi
+  meta-ros:
+    path: layers/meta-ros
+    layers:
+      meta-ros-common:
+      meta-ros2:
+      meta-ros2-lyrical:
+
+local_conf_header:
+  base: |
+    INIT_MANAGER = "systemd"
+    LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
+    IMAGE_FSTYPES = "wic.bz2 wic.bmap"
+    ENABLE_UART = "1"
