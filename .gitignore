@@ -1,0 +1,10 @@
+# ROS 2 workspace
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Yocto / kas
+build/
+downloads/
+sstate-cache/
+*.swp
