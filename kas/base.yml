@@ -44,3 +44,10 @@ local_conf_header:
     IMAGE_FSTYPES = "wic.bz2 wic.bmap"
     ENABLE_UART = "1"
     ROS_WORLD_SKIP_GROUPS += "zenoh"
+    INHERIT += "rm_work"
+  mirrors: |
+    # git:// (порт 9418) недоступний, тому завантажуємо через https
+    PREMIRRORS:prepend = " \
+        git://git.yoctoproject.org/.* git://git.yoctoproject.org/PATH;protocol=https \
+        git://git.openembedded.org/.* git://git.openembedded.org/PATH;protocol=https \
+    "
